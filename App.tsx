@@ -3,14 +3,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { LoginScreen } from './src/views/Login/Login';
+import { ProductScreen } from './src/views/Products/Products';
 
 const Stack = createNativeStackNavigator();
 
-const  App = () =>{
+const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='LoginScreen'  component={LoginScreen} />
+      <Stack.Navigator initialRouteName='ProductList'>
+        <Stack.Screen name='ProductList' component={ProductScreen} 
+        options={{ title: 'Lista de productos' }} />
+        <Stack.Screen name='LoginScreen' component={LoginScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
