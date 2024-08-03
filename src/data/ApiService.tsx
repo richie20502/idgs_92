@@ -16,3 +16,12 @@ export const fetchProducts =  async () => {
         throw new Error(`Fetch Product failed : ${error.message}`);
     }
 };
+
+export const authenticateUser = async (email: string, password: string ) => {
+    try {
+        const response  = await Api.post('/users/login',{email, password});
+        return response.data;
+    } catch (error: any) {
+        throw new Error(`Authentication failed : ${error.message}`);
+    }
+}
